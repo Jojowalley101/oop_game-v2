@@ -53,14 +53,22 @@ class Game {
 
     handleInteraction() {
         //Disable the selected letter’s onscreen keyboard button.
-
+        const selectedLetter = document.getElementById('.chosen').style.visibility = 'hidden';
         //If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-
+        if (!this.activePhrase.includes(selectedLetter)) {
+            document.querySelector('.wrong') += selectedLetter;
+            this.removeLife();
+        }
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
         //If the player has won the game, also call the gameOver() method.
+        else if (this.activePhrase.includes(selectedLetter)) {
+            document.querySelector('.chosen') += selectedLetter;
+            phrase.showMatchedLetter(this.activePhrase);
+        } else if (selectedLetter == this.activePhrase) {
+            this.gameOver();
+        }
 
-        
         document.querySelector('button').onclick=function() {
             alert('clicked');
         }
