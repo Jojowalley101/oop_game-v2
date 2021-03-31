@@ -51,21 +51,22 @@ class Game {
     * @param (HTMLButtonElement) button - The clicked button element
     */
 
-    handleInteraction() {
+    handleInteraction(button) {
         //Disable the selected letter’s onscreen keyboard button.
-        const selectedLetter = document.getElementById('.chosen').style.visibility = 'hidden';
+        button = document.getElementById('.chosen').style.visibility = 'hidden';
+        console.log(button);
         //If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-        if (!this.activePhrase.includes(selectedLetter)) {
-            document.querySelector('.wrong') += selectedLetter;
+        if (!this.activePhrase.includes(button)) {
+            document.querySelector('.wrong') += button;
             this.removeLife();
         }
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
         //If the player has won the game, also call the gameOver() method.
-        else if (this.activePhrase.includes(selectedLetter)) {
-            document.querySelector('.chosen') += selectedLetter;
+        else if (this.activePhrase.includes(button)) {
+            document.querySelector('.chosen') += button;
             phrase.showMatchedLetter(this.activePhrase);
-        } else if (selectedLetter == this.activePhrase) {
+        } else if (button == this.activePhrase) {
             this.gameOver();
         }
 
@@ -73,6 +74,11 @@ class Game {
             alert('clicked');
         }
     }
+
+    handleInteraction(button) {
+        console.log(button);
+    };
+
     /**
     * Increases the value of the missed property
     * Removes a life from the scoreboard

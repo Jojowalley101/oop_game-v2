@@ -19,7 +19,7 @@ class Phrase {
     */
 
     addPhraseToDisplay() {
-        const phraseDisplay = '';
+        const phraseDisplay = ' ';
         const phraseDom = document.getElementById('phrase').getElementsByTagName('ul')[0];
 
         for (let i = 0; i < this.phrase.length; i++) {
