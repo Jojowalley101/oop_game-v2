@@ -26,7 +26,7 @@ class Phrase {
             if (this.phrase[i] !== ' ') {
                 phraseDisplay += `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
             } else {
-                phraseDisplay += `<li class="hide space"> </li>`;
+                this.phraseDisplay += " ";
             }
         }
         phraseDom.innerHTML = phraseDisplay;

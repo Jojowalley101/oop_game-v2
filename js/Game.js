@@ -53,31 +53,27 @@ class Game {
 
     handleInteraction(button) {
         //Disable the selected letter’s onscreen keyboard button.
-        button = document.getElementById('.chosen').style.visibility = 'hidden';
+        const checkLetter = document.getElementById('.chosen').style.visibility = 'hidden';
+        
         console.log(button);
         //If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-        if (!this.activePhrase.includes(button)) {
-            document.querySelector('.wrong') += button;
-            this.removeLife();
-        }
+        if (!this.activePhrase.checkLetter) {
+            this.activePhrase.showMatchedLetter(checkLetter);
+        } else if (this.checkForWin() == true) {
+            this.gameOver();
+        } 
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
         //If the player has won the game, also call the gameOver() method.
-        else if (this.activePhrase.includes(button)) {
-            document.querySelector('.chosen') += button;
-            phrase.showMatchedLetter(this.activePhrase);
-        } else if (button == this.activePhrase) {
-            this.gameOver();
-        }
 
         document.querySelector('button').onclick=function() {
             alert('clicked');
         }
     }
 
-    handleInteraction(button) {
-        console.log(button);
-    };
+    // handleInteraction(button) {
+    //     console.log(button);
+    // };
 
     /**
     * Increases the value of the missed property
@@ -88,24 +84,31 @@ class Game {
     removeLife() {
         this.missed += 1;
         const livesLost = document.getElementsByClassName('tries');
-        if (livesLost in missed) {
+        if (this.missed === 5) {
             livesLost -= 1;
         } else {
             livesLost += 1;
         }
+        
     }
 
     /**
     * Checks for winning move
+    * one way to check for that would be to use a DOM selector to target all the elements with the 'hide' className.  ---
+    * And if the collection returned from the DOM selector has a length of zero, then you know that all the letters have been displayed, and the user has won. 
+    *  But an error in your addPhraseToDisplay method will cause a problem with that approach.  
+    * When adding your letters and spaces to the ul element, you don't want to give the spaces the 'hide' className.  Only the letters get the 'hide' className.
     * @return {boolean} True if game has been won, false if game wasn't
     won
     */
 
     checkForWin() {
-        if (document.getElementById('scoreboard') == 5) {
-            alert('Good job! You won!');
+        const hideClassName = document.getElementsByClassName('hide');
+
+        if (hideClassName.length == 0) {
+            
         } else {
-            alert('Better luck next time :)');
+            
         }
     }
 
