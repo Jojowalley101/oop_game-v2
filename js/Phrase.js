@@ -1,11 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js  
- * ask Samee how to translate the phrase if the user selects the language (at the end) */
-
-
-
-
+ */
 
 "use strict";
 
@@ -19,17 +15,16 @@ class Phrase {
     */
 
     addPhraseToDisplay() {
-        const phraseDisplay = ' ';
         const phraseDom = document.getElementById('phrase').getElementsByTagName('ul')[0];
 
         for (let i = 0; i < this.phrase.length; i++) {
             if (this.phrase[i] !== ' ') {
-                phraseDisplay += `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
+                this.activePhrase += `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
             } else {
-                this.phraseDisplay += " ";
+                this.activePhrase += " ";
             }
         }
-        phraseDom.innerHTML = phraseDisplay;
+        phraseDom.innerHTML = this.activePhrase;
     }
 
     /**
@@ -52,17 +47,7 @@ class Phrase {
             element.className.remove('hide');
             element.className.add('show');
         });
-
     }
-
-
-
-
-
-
-
-
-
 }
 
 

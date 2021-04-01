@@ -1,6 +1,7 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
+// let game;
 // const phrase = new Phrase('Life is like a box of chocolates');
 // console.log(`Phrase - phrase: ${phrase.phrase}`);
 
@@ -28,3 +29,8 @@
 // const phrase = new Phrase(randomPhrase.phrase);
 // phrase.addPhraseToDisplay();
 
+let game;
+game = new Game();
+const randomPhrase = game.getRandomPhrase();
+const phrase = new Phrase(randomPhrase.phrase);
+phrase.addPhraseToDisplay();

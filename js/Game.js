@@ -94,24 +94,19 @@ class Game {
 
     /**
     * Checks for winning move
-    * one way to check for that would be to use a DOM selector to target all the elements with the 'hide' className.  ---
-    * And if the collection returned from the DOM selector has a length of zero, then you know that all the letters have been displayed, and the user has won. 
-    *  But an error in your addPhraseToDisplay method will cause a problem with that approach.  
-    * When adding your letters and spaces to the ul element, you don't want to give the spaces the 'hide' className.  Only the letters get the 'hide' className.
     * @return {boolean} True if game has been won, false if game wasn't
     won
     */
 
     checkForWin() {
         const hideClassName = document.getElementsByClassName('hide');
-
         if (hideClassName.length == 0) {
-            
+            return true;
         } else {
-            
+            return false;
         }
     }
-
+    
     /**
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
