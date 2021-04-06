@@ -43,7 +43,7 @@ class Game {
         const randomPhrase = this.getRandomPhrase();
         this.activePhrase = randomPhrase;
         console.log(this.activePhrase);
-        this.activePhrase.addPhraseToDisplay;
+        this.activePhrase.addPhraseToDisplay();
     }
 
     /**
@@ -85,11 +85,12 @@ class Game {
         this.missed += 1;
         const livesLost = document.getElementsByClassName('tries');
         if (this.missed === 5) {
-            livesLost -= 1;
+            this.gameOver(false);
         } else {
             livesLost += 1;
         }
-        
+        console.log(this.removeLife);
+       
     }
 
     /**
