@@ -19,12 +19,6 @@ class Game {
         new Phrase('The marathon continues'),
         new Phrase('You are what you choose to be'),
         new Phrase('Do not let them dim your light')
-        // { phrase: '' },
-        // { phrase: '' },
-        // { phrase: '' },
-        // { phrase: '' },
-        // { phrase: '' },
-        // { phrase: '' },
         ];
         this.activePhrase = null;
     }

@@ -17,7 +17,8 @@ class Phrase {
     */
 
     addPhraseToDisplay() {
-        const getPhraseCurrent = game.getRandomPhrase().split(" ");
+        // const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
+        // console.log(getPhraseCurrent);
         
         //select phrase div to insert phrase there
         // create empty string to add a class to every letter of the phrase
@@ -42,18 +43,35 @@ class Phrase {
         // select phrase element within index.html (append it)
 
 
-        for (let i = 0; i < getPhraseCurrent.length; i++) {
+        //Also, in your addPhraseToDisplay method, 
+        //you need to give the letters li elements the 'hidden' className as well as the letter in the li element.
+        //const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
+
+        for (let i = 0; i < this.phrase.length; i++) {
+            //const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
+            //const phraseBuilder = `<li class="hide letter ${this.phrase[i]}" > ${this.phrase[i]}</li>`;
             const liElementInPhrase = document.createElement('li');
-            liElementInPhrase.textContent = getPhraseCurrent[i];
             const phraseInTheUL = document.getElementById('phrase');
             phraseInTheUL.appendChild(liElementInPhrase);
-
-            if (liElementInPhrase.textContent == ' ') {
-                liElementInPhrase.className = 'space';
-
+            //console.log(getPhraseCurrent);
+            if (this.phrase[i] == ' ') {
+                // liElementInPhrase.className.add('show');
+                liElementInPhrase.classList.add('space');
+                liElementInPhrase.textContent = this.phrase.charAt(i);
+                console.log(liElementInPhrase);
+                //liElementInPhrase.innerHTML = `<li class="space"> </li>`;
             } else {
-                liElementInPhrase.className = 'letter';
+                // liElementInPhrase.className.remove('show');
+                //liElementInPhrase.className.remove('space');
+                liElementInPhrase.classList.add('hide');
+                liElementInPhrase.classList.add('letter');
+                liElementInPhrase.classList.add(`${this.phrase.charAt(i)}`);
+                liElementInPhrase.textContent = this.phrase.charAt(i);
+                console.log(liElementInPhrase);
             }
+            // phraseBuilder = `<li class="hide letter ${this.phrase[i]}" > ${this.phrase[i]}</li>`;
+            //liElementInPhrase.textContent += this.phrase[i];
+            //liElementInPhrase.innerHTML += phraseBuilder;
         }
     }
 

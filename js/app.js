@@ -20,16 +20,16 @@
 // logPhrase(game.getRandomPhrase());
 // logPhrase(game.getRandomPhrase());
 
-//const game = new Game();
-//const phrase = new Phrase();
-
-//const game = new Game();
-// game.getRandomPhrase().addPhraseToDisplay();
+// const game = new Game();
+// const phrase = new Phrase();
 
 const game = new Game();
-const randomPhrase = game.getRandomPhrase();
-const phrase = new Phrase(randomPhrase.phrase);
-phrase.addPhraseToDisplay();
+// game.getRandomPhrase().addPhraseToDisplay();
+
+// const game = new Game();
+// const randomPhrase = game.getRandomPhrase();
+// const phrase = new Phrase(randomPhrase.phrase);
+// phrase.addPhraseToDisplay();
 
 // game.startGame();
 // console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
@@ -43,8 +43,8 @@ phrase.addPhraseToDisplay();
 // const phrase = new Phrase(randomPhrase.phrase);
 // phrase.addPhraseToDisplay();
 
-// document.getElementById('btn__reset').addEventListener('click', function() {
-//     game.startGame();
-//     this.style.display = 'none';
-//     document.getElementById('phrase').style.opacity = '1';
-// });
+document.getElementById('btn__reset').addEventListener('click', function() {
+    game.startGame();
+    this.style.display = 'none';
+    document.getElementById('phrase').style.opacity = '1';
+});
