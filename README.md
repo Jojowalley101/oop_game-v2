@@ -6,7 +6,7 @@
 
 Exceeds Explained:
 
-Upon loading the page the user is able to pick the language they would like to interact with the page (either through local location or picking it through google (on dev side)).
+
 
 Added keyboard functionality = Lets players use their physical computer keyboard to enter guesses.
 

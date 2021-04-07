@@ -106,11 +106,12 @@ class Phrase {
     */
 
     showMatchedLetter(letter) {
-        const selectLetter = document.getElementsByClassName(letter)
-        selectLetter.forEach(element => {
-            element.className.remove('hide');
-            element.className.add('show');
-        });
+        const selectLetter = document.getElementsByClassName(letter);
+        //console.log(selectLetter);
+        for (let i = 0; i < selectLetter.length; i++) {
+            selectLetter[i].classList.remove('hide');
+            selectLetter[i].classList.add('show');
+        }
     }
 }
 
