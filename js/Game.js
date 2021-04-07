@@ -8,19 +8,19 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [new Phrase('a')];
-        // this.phrases = [ new Phrase('Becoming is better than being'),
-        // new Phrase('A company that cannot self-correct cannot thrive'),
-        // new Phrase('Teaching is a wonderful way to learn'),
-        // new Phrase('A growth mindset is belief you can develop abilities'),
-        // new Phrase('You have to work hardest for the things you love most'),
-        // new Phrase('This is hard This is fun'),
-        // new Phrase('Representation matters'),
-        // new Phrase('Dedication hardwork plus patience'),
-        // new Phrase('The marathon continues'),
-        // new Phrase('You are what you choose to be'),
-        // new Phrase('Do not let them dim your light')
-        //];
+        // this.phrases = [new Phrase('a')];
+        this.phrases = [ new Phrase('Becoming is better than being'),
+        new Phrase('A company that cannot self-correct cannot thrive'),
+        new Phrase('Teaching is a wonderful way to learn'),
+        new Phrase('A growth mindset is belief you can develop abilities'),
+        new Phrase('You have to work hardest for the things you love most'),
+        new Phrase('This is hard This is fun'),
+        new Phrase('Representation matters'),
+        new Phrase('Dedication hardwork plus patience'),
+        new Phrase('The marathon continues'),
+        new Phrase('You are what you choose to be'),
+        new Phrase('Do not let them dim your light')
+        ];
         this.activePhrase = null;
     }
 
