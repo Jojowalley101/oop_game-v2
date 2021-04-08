@@ -23,7 +23,7 @@
 // const game = new Game();
 // const phrase = new Phrase();
 
-const game = new Game();
+let game = new Game();
 // game.getRandomPhrase().addPhraseToDisplay();
 
 // const game = new Game();

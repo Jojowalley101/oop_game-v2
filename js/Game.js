@@ -44,19 +44,26 @@ class Game {
     /**
     * Handles onscreen keyboard button clicks
     * @param (HTMLButtonElement) button - The clicked button element
+    * And I would recommend setting up the click handler on the onscreen keyboard keys, 
+    * so you can call game.handleInteraction in that click handler, 
+    * so you can more easily test the keys.  
+    * hen try logging out what you're passing to the method.  
+    * If you pass the button that was clicked to the method, 
+    * then that is what you'll be disabling.
     */
 
     handleInteraction(button) {
+        // console.log(button);
         //Disable the selected letter’s onscreen keyboard button.
-        const checkLetter = document.getElementById('chosen');
+        const checkLetter = document.querySelectorAll('.chosen');
         checkLetter = 'disabled';
-        const wrongGuess = document.getElementById('wrong');
+        const wrongGuess = document.querySelectorAll('.wrong');
         //console.log(button);
         //If the phrase does not include the guessed letter, 
         //add the wrong CSS class to the selected letter's keyboard button 
         //and call the removeLife() method.
-
-        if (!this.activePhrase.includes(checkLetter)) {
+        console.log(button);
+        if (!this.activePhrase.checkLetter) {
             button = wrongGuess;
             this.removeLife();
 
@@ -67,13 +74,14 @@ class Game {
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
         //If the player has won the game, also call the gameOver() method.
-        } else if (this.activePhrase.includes(checkLetter)) {
+        } else if (this.activePhrase.checkLetter) {
             this.activePhrase.showMatchedLetter(checkLetter);
         }
-        document.querySelector('button').onclick=function() {
-            alert('clicked');
-        }
-        console.log(button);
+
+        // document.querySelector('button').onclick=function() {
+        //     //alert('clicked');
+        // }
+        //console.log(button);
     }
 
     // handleInteraction(button) {
@@ -84,21 +92,34 @@ class Game {
     * Increases the value of the missed property
     * Removes a life from the scoreboard
     * Checks if player has remaining lives and ends game if player is out
+    *  
+    * And for the removeLife method, make sure you're inspecting the DOM and 
+    * checking out the elements panel so you know how the markup is structured.  
+    * The 'tries' elements are li elements.  
+    * So you should be able to use the this.missed property along with bracket notation 
+    * to target one of the li elements, 
+    * and then you just need set its innerHTML 
+    * to equal to an img tag like what you find in the index.html file, 
+    * but with the lostHeart image instead of the liveHeart image
     */
 
     removeLife() {
         const livesLost = document.getElementsByClassName('tries');
-        console.log(livesLost[this.missed]);
+        const missedLives = this.missed[livesLost];
+        //console.log(livesLost[this.missed]);
         // const lifeRemover = document.getElementById('scorebaord');
         //const liveHeart = document.
         //livesLost[this.missed].src = 'images/lostHeart.png';
         //livesLost[this.missed].getAttribute('img src');
-        console.log(livesLost[this.missed].getAttribute('src'));
+        //console.log(livesLost[this.missed].getAttribute('src'));
         this.missed += 1;
+        missedLives.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+
         if (this.missed === 5) {
             // livesLost -= 1;
-            this.gameOver(false);
+            this.gameOver(true);
         } else {
+            this.gameOver(false);
             // livesLost -= 1;
         }
         //console.log(this.removeLife);

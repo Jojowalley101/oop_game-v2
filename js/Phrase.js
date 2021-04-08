@@ -46,12 +46,12 @@ class Phrase {
         //Also, in your addPhraseToDisplay method, 
         //you need to give the letters li elements the 'hidden' className as well as the letter in the li element.
         //const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
-
+        
         for (let i = 0; i < this.phrase.length; i++) {
             //const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
             //const phraseBuilder = `<li class="hide letter ${this.phrase[i]}" > ${this.phrase[i]}</li>`;
             const liElementInPhrase = document.createElement('li');
-            const phraseInTheUL = document.getElementById('phrase');
+            const phraseInTheUL = document.querySelector('#phrase ul');
             phraseInTheUL.appendChild(liElementInPhrase);
             //console.log(getPhraseCurrent);
             if (this.phrase[i] == ' ') {
