@@ -32,14 +32,20 @@ class Game {
         const randomPhrases = this.phrases[Math.floor(Math.random() * this.phrases.length)];
         return randomPhrases;
     }
+    
 
     startGame() {
-        document.getElementById('overlay').style.visibility = 'hidden';
+        document.getElementById('overlay').style.display= 'none';
         const randomPhrase = this.getRandomPhrase();
         this.activePhrase = randomPhrase;
-        console.log(this.activePhrase);
+        //console.log(this.activePhrase);
         this.activePhrase.addPhraseToDisplay();
+
     }
+
+    
+
+
 
     /**
     * Handles onscreen keyboard button clicks
@@ -55,27 +61,34 @@ class Game {
     handleInteraction(button) {
         // console.log(button);
         //Disable the selected letter’s onscreen keyboard button.
-        const checkLetter = document.querySelectorAll('.chosen');
-        checkLetter = 'disabled';
-        const wrongGuess = document.querySelectorAll('.wrong');
+        //const chosenLetter = document.querySelectorAll('#chosen');
+        button.disabled = true;
+        // const buttonOfCSS = document.querySelectorAll('#button')
+        //const wrongGuess = document.querySelectorAll('#wrong');
         //console.log(button);
         //If the phrase does not include the guessed letter, 
         //add the wrong CSS class to the selected letter's keyboard button 
         //and call the removeLife() method.
         console.log(button);
-        if (!this.activePhrase.checkLetter) {
-            button = wrongGuess;
-            this.removeLife();
+        if (this.activePhrase.checkLetter(button.innerHTML)) {
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(button.innerHTML);
 
             //this.activePhrase.showMatchedLetter(checkLetter);
-        } else if (this.checkForWin() == true) {
-            this.gameOver();
-        
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
         //If the player has won the game, also call the gameOver() method.
-        } else if (this.activePhrase.checkLetter) {
-            this.activePhrase.showMatchedLetter(checkLetter);
+        } else {
+            console.log(this.activePhrase);
+            button.classList.add('wrong');
+            this.removeLife();
+
+        }
+
+        if (this.checkForWin() === true) {
+            // button.classList.remove('wrong');
+            //button.classList.add('chosen');
+            this.gameOver(true);
         }
 
         // document.querySelector('button').onclick=function() {
@@ -105,7 +118,11 @@ class Game {
 
     removeLife() {
         const livesLost = document.getElementsByClassName('tries');
-        const missedLives = this.missed[livesLost];
+        //console.log(livesLost);
+        const missedLives = livesLost[this.missed].getElementsByTagName('img')[0];
+        //console.log(missedLives);
+        missedLives.src = "images/lostHeart.png";
+
         //console.log(livesLost[this.missed]);
         // const lifeRemover = document.getElementById('scorebaord');
         //const liveHeart = document.
@@ -113,14 +130,11 @@ class Game {
         //livesLost[this.missed].getAttribute('img src');
         //console.log(livesLost[this.missed].getAttribute('src'));
         this.missed += 1;
-        missedLives.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+    
 
         if (this.missed === 5) {
             // livesLost -= 1;
-            this.gameOver(true);
-        } else {
             this.gameOver(false);
-            // livesLost -= 1;
         }
         //console.log(this.removeLife);
        
@@ -152,10 +166,40 @@ class Game {
     */
 
     gameOver(gameWon) {
-        if (gameWon !== true) {
-            document.getElementById('game-over-message');
-        } 
+        const gameOverDisplay = document.getElementById('game-over-message');
+        const gameOverYESORNO = document.getElementById('overlay');
+        gameOverYESORNO.style.display = 'inherit';
+        if (gameWon === true) {
+            gameOverDisplay.innerHTML = `Congrats you win`;
+            gameOverYESORNO.className = 'win';
+
+        } else {
+            gameOverDisplay.innerHTML = `Better Luck Next Time`;
+            //gameOverYESORNO.className.remove('win');
+            gameOverYESORNO.className = 'lose';
+        }
+        const enableButtonsNow = document.getElementsByClassName('key');
+        for (let i = 0; i < enableButtonsNow.length; i++) {
+            enableButtonsNow[i].disabled = false;
+            enableButtonsNow[i].classList.remove('wrong');
+            enableButtonsNow[i].classList.remove('chosen');
+        }
+        //const livesGainedBack = document.getElementsByClassName('tries');
+        const reincarnated = document.querySelectorAll('img');
+        for (let i = 0; i < reincarnated.length; i++) {
+            reincarnated[i].src = "images/liveHeart.png";
+        }
+
+        //this.activePhrase.default = true;
+        // const resetingGameNow = document.querySelector('#phrase ul');
+        // while (resetingGameNow.firstChild) {
+        //     resetingGameNow.removeChild(resetingGameNow.firstChild);
+        // }
+        //const resetingGameNow = document.querySelectorAll('btn__reset');
+        //for (let i = 0; i < resetingGameNow.length; i++) {
+            //resetingGameNow[i] = this.activePhrase.remove(addPhraseToDisplay());
+        // for (let i = 0; i < ) {
+        // }
     }
 }
-
 

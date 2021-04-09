@@ -23,7 +23,7 @@
 // const game = new Game();
 // const phrase = new Phrase();
 
-let game = new Game();
+let game = null;
 // game.getRandomPhrase().addPhraseToDisplay();
 
 // const game = new Game();
@@ -43,8 +43,28 @@ let game = new Game();
 // const phrase = new Phrase(randomPhrase.phrase);
 // phrase.addPhraseToDisplay();
 
-document.getElementById('btn__reset').addEventListener('click', function() {
+
+document.getElementById('btn__reset').addEventListener('click', (e) => {
+    game = new Game();
     game.startGame();
-    this.style.display = 'none';
-    document.getElementById('phrase').style.opacity = '1';
+    //const liElementInPhrasePart2 = document.getElementsByTagName('li');
+    //const phraseInTheULPart2 = document.querySelector('#phrase ul');
+
+    //game.handleInteraction(e.target);
+    //thisstyle.display = 'none';
+    //document.querySelector('#phrase').style.opacity = '1';
 });
+
+const keySelectors = document.querySelectorAll('.key');
+
+for (let i = 0; i < keySelectors.length; i++) {
+    keySelectors[i].addEventListener('click', e => {
+        game.handleInteraction(e.target);
+    });
+    
+}
+// document.querySelectorAll('.key').addEventListener('click', e => {
+//     console.log(e.target.value);
+//     game.handleInteraction(e.target);
+
+// });

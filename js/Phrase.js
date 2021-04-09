@@ -46,19 +46,22 @@ class Phrase {
         //Also, in your addPhraseToDisplay method, 
         //you need to give the letters li elements the 'hidden' className as well as the letter in the li element.
         //const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
-        
+
         for (let i = 0; i < this.phrase.length; i++) {
             //const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
             //const phraseBuilder = `<li class="hide letter ${this.phrase[i]}" > ${this.phrase[i]}</li>`;
             const liElementInPhrase = document.createElement('li');
             const phraseInTheUL = document.querySelector('#phrase ul');
             phraseInTheUL.appendChild(liElementInPhrase);
+            //phraseInTheUL.replaceChild(liElementInPhrase);
+            //phraseInTheUL.previousElementSibling(liElementInPhrase);
             //console.log(getPhraseCurrent);
             if (this.phrase[i] == ' ') {
                 // liElementInPhrase.className.add('show');
                 liElementInPhrase.classList.add('space');
                 liElementInPhrase.textContent = this.phrase.charAt(i);
-                console.log(liElementInPhrase);
+                //phraseInTheUL.appendChild(liElementInPhrase).firstElementChild;
+                //console.log(liElementInPhrase);
                 //liElementInPhrase.innerHTML = `<li class="space"> </li>`;
             } else {
                 // liElementInPhrase.className.remove('show');
@@ -67,7 +70,8 @@ class Phrase {
                 liElementInPhrase.classList.add('letter');
                 liElementInPhrase.classList.add(`${this.phrase.charAt(i)}`);
                 liElementInPhrase.textContent = this.phrase.charAt(i);
-                console.log(liElementInPhrase);
+                //phraseInTheUL.appendChild(liElementInPhrase).firstElementChild;
+                //console.log(liElementInPhrase);
             }
             // phraseBuilder = `<li class="hide letter ${this.phrase[i]}" > ${this.phrase[i]}</li>`;
             //liElementInPhrase.textContent += this.phrase[i];
