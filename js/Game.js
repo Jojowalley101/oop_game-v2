@@ -10,7 +10,7 @@ class Game {
         this.missed = 0;
         // this.phrases = [new Phrase('a')];
         this.phrases = [ new Phrase('Becoming is better than being'),
-        new Phrase('A company that cannot self-correct cannot thrive'),
+        new Phrase('A company that cannot self correct cannot thrive'),
         new Phrase('Teaching is a wonderful way to learn'),
         new Phrase('A growth mindset is belief you can develop abilities'),
         new Phrase('You have to work hardest for the things you love most'),
@@ -172,15 +172,18 @@ class Game {
         const gameOverDisplay = document.getElementById('game-over-message');
         const gameOverYESORNO = document.getElementById('overlay');
         gameOverYESORNO.style.display = 'inherit';
+        //console.log(gameOverYESORNO);
         if (gameWon === true) {
             gameOverDisplay.innerHTML = `Congrats you win`;
             gameOverYESORNO.className = 'win';
         } else {
+            
             gameOverDisplay.innerHTML = `Better Luck Next Time`;
             //gameOverYESORNO.classList = 'win';
             //gameOverYESORNO.parentElement.remove('win');
             gameOverYESORNO.className = 'lose';
         }
+        console.log(gameOverYESORNO);
         const enableButtonsNow = document.getElementsByClassName('key');
         for (let i = 0; i < enableButtonsNow.length; i++) {
             enableButtonsNow[i].disabled = false;
@@ -192,6 +195,10 @@ class Game {
         for (let i = 0; i < reincarnated.length; i++) {
             reincarnated[i].src = "images/liveHeart.png";
         }
+        document.querySelector('#phrase ul').innerHTML = '';
+
+
+
         //this.activePhrase = null;
         // const ulAgain = document.querySelector("ul");
         // ulAgain.innerHTML = " ";
