@@ -75,7 +75,11 @@ class Game {
         if (this.activePhrase.checkLetter(button.innerHTML)) {
             button.classList.add('chosen');
             this.activePhrase.showMatchedLetter(button.innerHTML);
-
+            if (this.checkForWin() === true) {
+                // button.classList.remove('wrong');
+                //button.classList.add('chosen');
+                this.gameOver(true);
+            }
             //this.activePhrase.showMatchedLetter(checkLetter);
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
@@ -87,12 +91,6 @@ class Game {
 
         }
         //this.usedPhrases.push(button);
-
-        if (this.checkForWin() === true) {
-            // button.classList.remove('wrong');
-            //button.classList.add('chosen');
-            this.gameOver(true);
-        }
 
         // document.querySelector('button').onclick=function() {
         //     //alert('clicked');
