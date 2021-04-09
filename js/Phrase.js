@@ -15,7 +15,7 @@ class Phrase {
     * Each letter is presented by an empty box, one li element for each letter
     * When the player correctly guesses a letter, the empty box is replaced with the matched letter
     */
-
+    
     addPhraseToDisplay() {
         // const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
         // console.log(getPhraseCurrent);

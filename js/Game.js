@@ -22,6 +22,7 @@ class Game {
         new Phrase('Do not let them dim your light')
         ];
         this.activePhrase = null;
+        //this.usedPhrases = [];
     }
 
     /**
@@ -31,6 +32,7 @@ class Game {
     getRandomPhrase() {
         const randomPhrases = this.phrases[Math.floor(Math.random() * this.phrases.length)];
         return randomPhrases;
+        
     }
     
 
@@ -69,7 +71,7 @@ class Game {
         //If the phrase does not include the guessed letter, 
         //add the wrong CSS class to the selected letter's keyboard button 
         //and call the removeLife() method.
-        console.log(button);
+        //console.log(button);
         if (this.activePhrase.checkLetter(button.innerHTML)) {
             button.classList.add('chosen');
             this.activePhrase.showMatchedLetter(button.innerHTML);
@@ -79,11 +81,12 @@ class Game {
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
         //If the player has won the game, also call the gameOver() method.
         } else {
-            console.log(this.activePhrase);
+            //console.log(this.activePhrase);
             button.classList.add('wrong');
             this.removeLife();
 
         }
+        //this.usedPhrases.push(button);
 
         if (this.checkForWin() === true) {
             // button.classList.remove('wrong');
@@ -172,10 +175,10 @@ class Game {
         if (gameWon === true) {
             gameOverDisplay.innerHTML = `Congrats you win`;
             gameOverYESORNO.className = 'win';
-
         } else {
             gameOverDisplay.innerHTML = `Better Luck Next Time`;
-            //gameOverYESORNO.className.remove('win');
+            //gameOverYESORNO.classList = 'win';
+            //gameOverYESORNO.parentElement.remove('win');
             gameOverYESORNO.className = 'lose';
         }
         const enableButtonsNow = document.getElementsByClassName('key');
@@ -189,7 +192,9 @@ class Game {
         for (let i = 0; i < reincarnated.length; i++) {
             reincarnated[i].src = "images/liveHeart.png";
         }
-
+        //this.activePhrase = null;
+        // const ulAgain = document.querySelector("ul");
+        // ulAgain.innerHTML = " ";
         //this.activePhrase.default = true;
         // const resetingGameNow = document.querySelector('#phrase ul');
         // while (resetingGameNow.firstChild) {
