@@ -80,6 +80,7 @@ class Game {
                 //button.classList.add('chosen');
                 this.gameOver(true);
             }
+
             //this.activePhrase.showMatchedLetter(checkLetter);
         //If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, 
         //call the showMatchedLetter() method on the phrase, and then call the checkForWin() method. 
@@ -181,7 +182,7 @@ class Game {
             //gameOverYESORNO.parentElement.remove('win');
             gameOverYESORNO.className = 'lose';
         }
-        console.log(gameOverYESORNO);
+        //console.log(gameOverYESORNO);
         const enableButtonsNow = document.getElementsByClassName('key');
         for (let i = 0; i < enableButtonsNow.length; i++) {
             enableButtonsNow[i].disabled = false;

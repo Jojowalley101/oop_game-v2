@@ -5,7 +5,7 @@
 "Exceeds"
 
 Added keyboard functionality: 
-I added it so that the user can type the letters from their keyboard to guess the phrase.
+I tried to add keyboard functionality it so that the user can type the letters from their keyboard to guess the phrase.
 
 Styling - experimenting with colors.
 I changed the title color and the show letter that's displayed color as well.
