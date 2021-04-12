@@ -91,17 +91,8 @@ class Game {
             this.removeLife();
 
         }
-        //this.usedPhrases.push(button);
-
-        // document.querySelector('button').onclick=function() {
-        //     //alert('clicked');
-        // }
-        //console.log(button);
     }
 
-    // handleInteraction(button) {
-    //     console.log(button);
-    // };
 
     /**
     * Increases the value of the missed property

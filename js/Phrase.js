@@ -17,8 +17,7 @@ class Phrase {
     */
     
     addPhraseToDisplay() {
-        // const getPhraseCurrent = this.phrase.getRandomPhrase().charAt(i);
-        // console.log(getPhraseCurrent);
+       
         
         //select phrase div to insert phrase there
         // create empty string to add a class to every letter of the phrase
